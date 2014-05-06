@@ -1,8 +1,11 @@
-HOCKING-breakpointError.pdf: HOCKING-breakpointError.tex refs.bib
+HOCKING-breakpointError.pdf: HOCKING-breakpointError.tex refs.bib figure-motivation.pdf
 	pdflatex HOCKING-breakpointError
 	bibtex HOCKING-breakpointError
 	pdflatex HOCKING-breakpointError
 	pdflatex HOCKING-breakpointError
+
+figure-motivation.pdf: figure-motivation.R
+	R --no-save < $<
 
 figures/variable-density-sigerr.tex: figures/variable-density-sigerr.R data/variable.density.show.RData scripts/fp.fn.colors.R
 	R --vanilla < $<
